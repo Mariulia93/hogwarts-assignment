@@ -117,6 +117,9 @@ function setup() {
   document
     .querySelectorAll("[data-action='filterS']")
     .forEach((button) => button.addEventListener("click", selectFilterS));
+    document
+    .querySelectorAll("[data-action='filtersp']")
+    .forEach((button) => button.addEventListener("click", selectSPFilter));
   // setting sorting event
   document
     .querySelectorAll("[data-action='sort']")
@@ -366,6 +369,8 @@ function displayStudent(student) {
   } else {
     clone.querySelector(".inqsquad").classList.add("grey");
   }
+
+
   clone.querySelector(".inqsquad").addEventListener("click", squadClicked);
   clone
     .querySelector("[data-field='last-name'")
@@ -410,6 +415,7 @@ function displayStudent(student) {
       student.firstname + " " + student.middlename + " " + student.lastname;
     document.querySelector("#popup-house").textContent = student.house;
     document.querySelector("#popup-blood").textContent = student.blood;
+    document.querySelector("#popup-pref").textContent = student.prefect;
 
     if (student.regStudent) {
       document.querySelector("#popup-status").textContent = "Regular Student";
