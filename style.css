@@ -1,0 +1,71 @@
+
+body {
+  color: #3e0500;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: "Charm", cursive; */
+ 
+}
+
+main {
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.grey{
+  background-color: orange;
+}
+
+
+/* #list tbody tr:nth-child(odd) td {
+  background-color: #e7d7a9;
+  border-right: #f7e9c2 1px dotted;
+}
+
+#list tbody tr:nth-child(even) td {
+  border-right: #e7d7a9 1px dotted;
+  background-color: lightblue;
+} */
+
+#sorting th,
+[data-field="last-name"],
+[data-field="name"],
+[data-field="pref"],
+[data-field="name"],
+[data-field="squad"] {
+  cursor: pointer;
+}
+
+
+
+#student-popup {
+  background-color:#e7d7a9;
+  position: fixed;
+  box-shadow: 10px 10px 16px -1px rgba(62, 5, 0, 0.31);
+  border-radius: 20px;
+  top: 35%;
+  left: 62%;
+  padding: 2rem;
+}
+#squad-popup {
+  background-color:#e7d7a9;
+  position: fixed;
+  box-shadow: 10px 10px 16px -1px rgba(62, 5, 0, 0.31);
+  border-radius: 20px;
+  top: 35%;
+  left: 62%;
+  padding: 2rem;
+}
+.grey {
+  filter: grayscale(100%);
+}
+.smallicon{
+  height: 5vh;
+  padding: 1vh;
+}
+.inqsquad{
+  height: 5vh;
+  padding: 1vh;
+}

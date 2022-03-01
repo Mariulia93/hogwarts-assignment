@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hogwarts Student List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="header-title">Hogwarts Student List</h1>
+    </header>
+    <nav>
+        <div id="filter-btns">
+            Filters:
+            <button id="filter-pref" data-action="filtersp" data-filter="pref">See Prefects</button>
+            <button id="filter-squad" data-action="filtersp" data-filter="squad">See Inquisitorial Squad</button>
+            <button id="filter-reg" data-action="filterS" data-filter="regular">See Regular Students</button>
+            <button id="filter-expelled" data-action="filterS" data-filter="expelled">See Expelled Students</button>
+            <button id="filter-pure" data-action="filterB" data-filter="Pure Blood">See Pure Bloods</button>
+            <button id="filter-half" data-action="filterB" data-filter="Half-Blood">See Half-Bloods</button>
+            <button id="filter-muggle" data-action="filterB" data-filter="Muggle">See Muggles</button>
+            <button id="all" data-action="filter" data-filter="*">See All</button>
+
+        </div>
+        <div id="right-nav">
+            <div id="house-filter">
+                <div id="search-box">
+                    <input type="search" placeholder="Search by name.." name="search" />
+                    <button id="search-btn">Search</button>
+                </div>
+                <p>Filter by House</p>
+                <div id="houses">
+                    <button id="grif-btn" data-action="filterH" data-filter="Gryffindor">G</button>
+                    <button id="slyt-btn" data-action="filterH" data-filter="Slytherin">S</button>
+                    <button id="huff-btn" data-action="filterH" data-filter="Hufflepuff">H</button>
+                    <button id="rave-btn" data-action="filterH" data-filter="Ravenclaw">R</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <table id="list">
+            <thead>
+                <tr id="sorting">
+                    <th data-action="sort" data-sort-direction="asc" data-sort="pref">Prefect
+                    </th>
+                    <th data-action="sort" data-sort-direction="asc" data-sort="lastname">Last Name</th>
+                    <th data-action="sort" data-sort-direction="asc" data-sort="firstname">First Name</th>
+                    <th data-action="sort" data-sort-direction="asc" data-sort="middlename">Middle Name</th>
+
+
+
+                    <th data-action="sort" data-sort-direction="asc" data-sort="house">House</th>
+
+                    <th data-action="sort" data-sort-direction="asc" data-sort="blood">Blood Status</th>
+                    <th data-action="sort" data-sort-direction="asc" data-sort="status">Status</th>
+                    <th data-action="sort" data-sort-direction="asc" data-sort="status">Inquisitorial Squad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- print student here -->
+            </tbody>
+        </table>
+
+        <template id="student">
+            <tr>
+                <td data-field="pref"><img class="smallicon" src="img/print.png" alt="Prefect badge"></td>
+                <td data-field="last-name">Last Name</td>
+                <td data-field="name">First Name</td>
+                <td data-field="middle-name">Middle Name</td>
+                <td data-field="house">House</td>
+                <td data-field="blood-status">Blood Status</td>
+                <td data-field="status">Status</td>
+                <td data-field="squad"><img class="inqsquad" src="img/inquisitorial.png" alt="Inquisitiorial badge"></td>
+            </tr>
+        </template>
+        <div id="student-popup" class="hidden">
+            <img src="" alt="" id="student-pic">
+            <div id="popup-txt">
+                <div id="popup-header">
+                    <div id="popup-title">
+                        <h2 id="popup-name">Harry Potter</h2>
+                        <h3 id="popup-house">House <span id="stud-house">Griffindor</span></h3>
+                    </div>
+                    <div id="popup-house-logo">G</div>
+                </div>
+                <p id="popup-pref">Prefect</p>
+                <p id="popup-blood"></p>
+                <p id="popup-sq"><span id="popup-squad">Not </span>Member of the Inquisitory Squad</p>
+                <p id="popup-stud-st">Student Status: <span id="popup-status"></span></p>
+                <div id="popup-btns">
+                    <button id="popup-expell">Expell Student</button>
+                    <button id="popup-close">Close Window</button>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div id="pref-popup" class="hidden">
+            <p>Only 2 students per house can be Prefects. <br>
+                Remove other prefect to continue.</p>
+            <button id="pref-btn">OK</button>
+        </div>
+        <div id="squad-popup" class="hidden">
+            <p>Only Slytherin students can be part of the Inquisitorial Squad. </p>
+            <button id="squad-btn">OK</button>
+        </div>
+    </main>
+</body>
+<script src="script.js"></script>
+
+</html>
