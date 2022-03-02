@@ -69,6 +69,10 @@ main {
   height: 5vh;
   padding: 1vh;
 }
-/* .inqsquad::after{
+.inqsquad::after{
   filter: grayscale(1);
-} */
+}
+
+
+
+

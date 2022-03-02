@@ -385,6 +385,8 @@ function displayStudent(student) {
     }
     buildList();
   }
+
+  
   function squadClicked() {
     if (student.blood === "Pure Blood" || student.house === "Slytherin") {
       if (student.squad === true) {
