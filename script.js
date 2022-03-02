@@ -424,7 +424,7 @@ function displayStudent(student) {
   clone.querySelector("[data-field='name'").addEventListener("click", openPU);
   clone.querySelector(".smallicon").addEventListener("click", prefClicked);
   clone.querySelector(".inqsquad").addEventListener("click", squadClicked);
-  clone.querySelector(".inqsquad").addEventListener("click", prefClicked);
+  
 
   function prefClicked() {
     if (student.regStudent === true) {
