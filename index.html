@@ -12,6 +12,7 @@
 <body>
     <header>
         <h1 id="header-title">Hogwarts Student List</h1>
+        <button id="hacking-btn">hack</button>
     </header>
     <nav>
         <div id="filter-btns">
@@ -29,7 +30,7 @@
         <div id="right-nav">
             <div id="house-filter">
                 <div id="search-box">
-                    <input type="search" placeholder="Search by name.." name="search" />
+                    <input id="sbar" type="search" placeholder="Search by name.." name="search" />
                     <button id="search-btn">Search</button>
                 </div>
                 <p>Filter by House</p>
@@ -68,14 +69,14 @@
 
         <template id="student">
             <tr>
-                <td data-field="pref"><img class="smallicon" src="img/print.png" alt="Prefect badge"></td>
+                <td data-field="pref"><img src="img/print.png" alt="Prefect badge" class="smallicon"></td>
                 <td data-field="last-name">Last Name</td>
                 <td data-field="name">First Name</td>
                 <td data-field="middle-name">Middle Name</td>
                 <td data-field="house">House</td>
                 <td data-field="blood-status">Blood Status</td>
                 <td data-field="status">Status</td>
-                <td data-field="squad"><img class="inqsquad" src="img/inquisitorial.png" alt="Inquisitiorial badge"></td>
+                <td data-field="squad"><img class="inqsquad" src="img/inquisitorial.svg" alt="Inquisitiorial badge"></td>
             </tr>
         </template>
         <div id="student-popup" class="hidden">
@@ -86,7 +87,9 @@
                         <h2 id="popup-name">Harry Potter</h2>
                         <h3 id="popup-house">House <span id="stud-house">Griffindor</span></h3>
                     </div>
-                    <div id="popup-house-logo">G</div>
+                    <div id="popup-house-logo">
+                        <img src="" alt="house flag" id="hflag">
+                    </div>
                 </div>
                 <p id="popup-pref">Prefect</p>
                 <p id="popup-blood"></p>

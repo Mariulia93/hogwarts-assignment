@@ -58,6 +58,9 @@ main {
   left: 62%;
   padding: 2rem;
 }
+#hflag{
+  height: 8vw;
+}
 .grey {
   filter: grayscale(100%);
 }
