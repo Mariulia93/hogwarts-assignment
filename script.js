@@ -473,11 +473,11 @@ function displayStudent(student) {
         if (student.blood === "Pure Blood" || student.house === "Slytherin") {
           if (student.squad === true) {
             student.squad = false;
-            const index = squadStudents.indexOf(student);
-            squadStudents.splice(index, 1);
+            const index = squadList.indexOf(student);
+            squadList.splice(index, 1);
           }else{
             student.squad = true;
-            squadStudents.push(student);
+            squadList.push(student);
           }
         }else {
           console.log("cannot be in the inq squad");
@@ -494,7 +494,7 @@ function displayStudent(student) {
   }
   
   function hackingSquad() {
-    squadStudents.push(student);
+    squadList.push(student);
     student.squad = true;
     const myTimeOut = setTimeout(squadHacked, 3000);
     buildList();
@@ -502,8 +502,8 @@ function displayStudent(student) {
 
   function squadHacked() {
     student.squad = false;
-    const  index = squadStudents.indexOf(student);
-    squadStudents.splice(index, 1);
+    const  index = squadList.indexOf(student);
+    squadList.splice(index, 1);
     buildList();
   }
 
@@ -579,9 +579,29 @@ function displayStudent(student) {
   document.querySelector("#list tbody").appendChild(clone);
 }
 function hackTheSystem() {
+  document.querySelector("#hacking-btn").removeEventListener("click", hackTheSystem);
   systemHacked = true;
+  allStudents.push(marina);
+  allStudents.push(ailin);
+  allStudents.forEach(randomBlood);
+  console.log("system hacked");
+  buildList();
 }
-
+function randomBlood(student) {
+  console.log(student);
+  if (student.blood === "Pure Blood") {
+    if (student.cannotBeExpelled === false) {
+      const types = ["Muggle", "Half Blood"];
+      const randomNumber = Math.floor(Math.random() * 2);
+      student.blood = types[randomNumber];
+      console.log(student.blood);
+    } else {
+      student.blood = "Pure Blood";
+    }
+  } else {
+    student.blood = "Pure Blood";
+  }
+}
 function closePU() {
   document.querySelector("#student-popup").classList.add("hidden");
 
