@@ -413,6 +413,45 @@ function displayStudent(student) {
   } else {
     clone.querySelector(".inqsquad").classList.add("grey");
   }
+
+  //counters lists
+  document.querySelector(
+    "#counter-all"
+  ).textContent = `(${allStudents.length})`;
+  document.querySelector("#counter-pref").textContent = `(${prefectsList.length})`;
+  document.querySelector(
+    "#counter-squad"
+  ).textContent = `(${squadList.length})`;
+
+  let countRegStudents = allStudents.filter(
+    (student) => student.regStudent === true
+  );
+  document.querySelector(
+    "#counter-regular"
+  ).textContent = `(${countRegStudents.length})`;
+  document.querySelector(
+    "#counter-expelled"
+  ).textContent = `(${expelledStudents.length})`;
+
+  let countPureBlood = allStudents.filter(
+    (student) => student.blood === "Pure Blood"
+  );
+  document.querySelector(
+    "#counter-pureblood"
+  ).textContent = `(${countPureBlood.length})`;
+
+  let countHalfBlood = allStudents.filter(
+    (student) => student.blood === "Half-Blood"
+  );
+  document.querySelector(
+    "#counter-halfblood"
+  ).textContent = `(${countHalfBlood.length})`;
+
+  let countMuggle = allStudents.filter((student) => student.blood === "Muggle");
+  document.querySelector(
+    "#counter-muggles"
+  ).textContent = `(${countMuggle.length})`;
+
   clone
     .querySelector("[data-field='last-name'")
     .addEventListener("click", openPU);
@@ -491,9 +530,16 @@ function displayStudent(student) {
   }
 
   function hackingSquad() {
-    squadList.push(student);
-    student.squad = true;
-    const myTimeOut = setTimeout(squadHacked, 3000);
+    if (student.blood === "Pure Blood" || student.house=== "Slytherin") {
+      squadList.push(student);
+      student.squad = true;
+      setTimeout(squadHacked, 3000);
+
+    } else{
+      document.querySelector("cant be squad");
+      document.querySelector("#squad-popup").classList.remove("hidden");
+      document.querySelector("#squad-btn").addEventListener("click", closePU)
+    }
     buildList();
   }
 
@@ -517,7 +563,6 @@ function displayStudent(student) {
     } else {
       document.querySelector("#popup-status").textContent = "Expelled Student";
     }
-    
 
     if (student.prefect) {
       document.querySelector("#popup-pref").classList.remove("hidden");
@@ -527,14 +572,11 @@ function displayStudent(student) {
     if (student.squad) {
       document.querySelector("#popup-sq").classList.remove("hidden");
       document.querySelector("#popup-sq").textContent =
-
         "Member of the Inquisitory Squad";
     } else {
       document.querySelector("#popup-sq").classList.add("hidden");
       document.querySelector("#popup-sq").textContent =
-
         "Not Member of the Inquisitory Squad";
-
     }
     if (student.image === false) {
       console.log("show leanne pic");
@@ -565,7 +607,6 @@ function displayStudent(student) {
     document
       .querySelector("#popup-expell")
       .addEventListener("click", clickExpell);
-   
 
     function clickExpell() {
       if (student.cannotBeExpelled === false) {
@@ -583,8 +624,6 @@ function displayStudent(student) {
       }
       buildList();
     }
-
-    
   }
 
   document.querySelector("#list tbody").appendChild(clone);
