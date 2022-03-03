@@ -402,7 +402,6 @@ function displayStudent(student) {
     clone.querySelector("[data-field=status]").textContent = "Regular Student";
   } else {
     clone.querySelector("[data-field=status]").textContent = "Expelled Student";
-    
   }
 
   // adding event listeners to students for pop-up
@@ -411,20 +410,19 @@ function displayStudent(student) {
   } else {
     clone.querySelector(".smallicon").classList.add("grey");
   }
-  
+
   if (student.squad) {
     clone.querySelector(".inqsquad").classList.remove("grey");
   } else {
     clone.querySelector(".inqsquad").classList.add("grey");
   }
   clone
-  .querySelector("[data-field='last-name'")
-  .addEventListener("click", openPU);
-  
+    .querySelector("[data-field='last-name'")
+    .addEventListener("click", openPU);
+
   clone.querySelector("[data-field='name'").addEventListener("click", openPU);
   clone.querySelector(".smallicon").addEventListener("click", prefClicked);
   clone.querySelector(".inqsquad").addEventListener("click", squadClicked);
-  
 
   function prefClicked() {
     if (student.regStudent === true) {
@@ -475,24 +473,26 @@ function displayStudent(student) {
             student.squad = false;
             const index = squadList.indexOf(student);
             squadList.splice(index, 1);
-          }else{
+          } else {
             student.squad = true;
             squadList.push(student);
           }
-        }else {
+        } else {
           console.log("cannot be in the inq squad");
           document.querySelector("#squad-popup").classList.remove("hidden");
-          document.querySelector("#squad-btn").addEventListener("click", closePU);
+          document
+            .querySelector("#squad-btn")
+            .addEventListener("click", closePU);
         }
-      }else{
+      } else {
         student.squad = false;
       }
-    }else{
+    } else {
       hackingSquad();
     }
     buildList();
   }
-  
+
   function hackingSquad() {
     squadList.push(student);
     student.squad = true;
@@ -502,7 +502,7 @@ function displayStudent(student) {
 
   function squadHacked() {
     student.squad = false;
-    const  index = squadList.indexOf(student);
+    const index = squadList.indexOf(student);
     squadList.splice(index, 1);
     buildList();
   }
@@ -532,16 +532,18 @@ function displayStudent(student) {
     } else {
       document.querySelector("#popup-sq").classList.add("hidden");
     }
-    
-  //add image in the pop-up window
 
+    //add image in the pop-up window
+    document.querySelector("#h-logo").src = `/img/${student.house}.png`;
 
     document.querySelector("#popup-status").textContent = student.status;
     document.querySelector("#student-pic").src = `/students-pics/${
       student.lastname
     }_${student.firstname.charAt(0)}.png`;
-    document.querySelector("#popup-house-logo").textContent =
-      student.house.charAt(0);
+
+    // document.querySelector("#popup-house-logo").textContent =
+    //   student.house.charAt(0);
+    
     if (student.lastname.includes("-")) {
       document.querySelector(
         "#student-pic"
@@ -579,7 +581,9 @@ function displayStudent(student) {
   document.querySelector("#list tbody").appendChild(clone);
 }
 function hackTheSystem() {
-  document.querySelector("#hacking-btn").removeEventListener("click", hackTheSystem);
+  document
+    .querySelector("#hacking-btn")
+    .removeEventListener("click", hackTheSystem);
   systemHacked = true;
   allStudents.push(marina);
   allStudents.push(ailin);
