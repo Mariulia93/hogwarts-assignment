@@ -1,87 +1,5 @@
 "use strict";
 
-// const pureBloodFamilies = [
-//   "Boot",
-//   "Cornfoot",
-//   "Abbott",
-//   "Avery",
-//   "Black",
-//   "Blishwick",
-//   "Brown",
-//   "Bulstrode",
-//   "Burke",
-//   "Carrow",
-//   "Crabbe",
-//   "Crouch",
-//   "Fawley",
-//   "Flint",
-//   "Gamp",
-//   "Gaunt",
-//   "Goyle",
-//   "Greengrass",
-//   "Kama",
-//   "Lestrange",
-//   "Longbottom",
-//   "MacDougal",
-//   "Macmillan",
-//   "Malfoy",
-//   "Max",
-//   "Moody",
-//   "Nott",
-//   "Ollivander",
-//   "Parkinson",
-//   "Peverell",
-//   "Potter",
-//   "Prewett",
-//   "Prince",
-//   "Rosier",
-//   "Rowle",
-//   "Sayre",
-//   "Selwyn",
-//   "Shacklebolt",
-//   "Shafiq",
-//   "Slughorn",
-//   "Slytherin",
-//   "Travers",
-//   "Tremblay",
-//   "Tripe",
-//   "Urquart",
-//   "Weasley",
-//   "Yaxley",
-//   "Bletchley",
-//   "Dumbledore",
-//   "Fudge",
-//   "Gibbon",
-//   "Gryffindor",
-//   "Higgs",
-//   "Lowe",
-//   "Macnair",
-//   "Montague",
-//   "Mulciber",
-//   "Orpington",
-//   "Pyrites",
-//   "Perks",
-//   "Runcorn",
-//   "Wilkes",
-//   "Zabini",
-// ];
-
-// const halfBloodFamilies = [
-//   "Abbott",
-//   "Bones",
-//   "Jones",
-//   "Hopkins",
-//   "Finnigan",
-//   "Potter",
-//   "Brocklehurst",
-//   "Goldstein",
-//   "Corner",
-//   "Bulstrode",
-//   "Patil",
-//   "Li",
-//   "Thomas",
-// ];
-
 window.addEventListener("DOMContentLoaded", setup);
 let systemHacked = false;
 let allStudents = [];
@@ -104,13 +22,13 @@ const Student = {
   squad: false,
   regStudent: true,
   cannotBeExpelled: false,
-  image: false,
+  image: true,
 };
 const ailin = {
   firstname: "Ailin",
   middlename: "Maria",
   lastname: "Torre Val",
-  house: "Hufflepuff",
+  house: "Ravenclaw",
   blood: "Pure Blood",
   prefect: false,
   squad: false,
@@ -401,7 +319,6 @@ function displayStudent(student) {
     clone.querySelector("[data-field=status]").textContent = "Expelled Student";
   }
 
-  // adding event listeners to students for pop-up
   if (student.prefect) {
     clone.querySelector("#smallicon").classList.remove("grey");
   } else {
@@ -418,7 +335,9 @@ function displayStudent(student) {
   document.querySelector(
     "#counter-all"
   ).textContent = `(${allStudents.length})`;
-  document.querySelector("#counter-pref").textContent = `(${prefectsList.length})`;
+  document.querySelector(
+    "#counter-pref"
+  ).textContent = `(${prefectsList.length})`;
   document.querySelector(
     "#counter-squad"
   ).textContent = `(${squadList.length})`;
@@ -453,10 +372,10 @@ function displayStudent(student) {
   ).textContent = `(${countMuggle.length})`;
 
   clone
-    .querySelector("[data-field='last-name'")
+    .querySelector("[data-field=last-name")
     .addEventListener("click", openPU);
 
-  clone.querySelector("[data-field='name'").addEventListener("click", openPU);
+  clone.querySelector("[data-field=name").addEventListener("click", openPU);
   clone.querySelector("#smallicon").addEventListener("click", prefClicked);
   clone.querySelector(".inqsquad").addEventListener("click", squadClicked);
 
@@ -488,6 +407,8 @@ function displayStudent(student) {
     if (student.prefect === true) {
       if (nrHouse >= 2) {
         console.log("you can have only 2 per house", prefectsHouse);
+        document.querySelector("#pref-popup").classList.remove("hidden");
+        document.querySelector("#pref-btn").addEventListener("click", closePU);
         student.prefect = false;
       } else {
         makePrefect(student);
@@ -530,15 +451,14 @@ function displayStudent(student) {
   }
 
   function hackingSquad() {
-    if (student.blood === "Pure Blood" || student.house=== "Slytherin") {
+    if (student.blood === "Pure Blood" || student.house === "Slytherin") {
       squadList.push(student);
       student.squad = true;
       setTimeout(squadHacked, 3000);
-
-    } else{
+    } else {
       document.querySelector("cant be squad");
       document.querySelector("#squad-popup").classList.remove("hidden");
-      document.querySelector("#squad-btn").addEventListener("click", closePU)
+      document.querySelector("#squad-btn").addEventListener("click", closePU);
     }
     buildList();
   }
@@ -552,6 +472,7 @@ function displayStudent(student) {
 
   function openPU() {
     console.log("show student info", student.lastname);
+
     document.querySelector("#student-popup").classList.remove("hidden");
     document.querySelector("#popup-name").textContent =
       student.firstname + " " + student.middlename + " " + student.lastname;
@@ -563,7 +484,13 @@ function displayStudent(student) {
     } else {
       document.querySelector("#popup-status").textContent = "Expelled Student";
     }
-
+    if (student.alias) {
+      document.querySelector("#popup-name").textContent =
+        student.firstname + " " + student.alias + " " + student.lastname;
+    } else {
+      document.querySelector("#popup-name").textContent =
+        student.firstname + " " + student.middlename + " " + student.lastname;
+    }
     if (student.prefect) {
       document.querySelector("#popup-pref").classList.remove("hidden");
     } else {
@@ -580,7 +507,7 @@ function displayStudent(student) {
     }
     if (student.image === false) {
       console.log("show leanne pic");
-      //add image for Leanne
+      //TO ADD image for Leanne
     }
     //add image in the pop-up window
     document.querySelector("#h-logo").src = `/img/${student.house}.png`;
@@ -592,6 +519,27 @@ function displayStudent(student) {
 
     // document.querySelector("#popup-house-logo").textContent =
     //   student.house.charAt(0);
+
+    //fixing patil issue
+    if (student.lastname.includes("-")) {
+      let urlImage;
+      let imglastName = student.lastname.substring(
+        student.lastname.indexOf("-") + 1
+      );
+      urlImage =
+        imglastName + "_" + student.firstname.charAt(0).toLowerCase() + ".png";
+      console.log(urlImage);
+      document.querySelector("#student-pic").src = `/students-pics/${urlImage}`;
+    } else if (student.lastname === "Patil") {
+      document.querySelector(
+        "#student-pic"
+      ).src = `/students-pics/${student.lastname}_${student.firstname}.png`;
+    } else {
+      document.querySelector("#student-pic").src = `/students-pics/${
+        student.lastname
+      }_${student.firstname.charAt(0)}.png`;
+    }
+
 
     if (student.lastname.includes("-")) {
       document.querySelector(

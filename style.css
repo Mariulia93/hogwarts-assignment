@@ -1,13 +1,17 @@
-
-body {
-  color: #3e0500;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  /* font-family: "Charm", cursive; */
- 
+*{
+  box-sizing: border-box;
 }
 
-main {
-  position: relative;
+body {
+  background-color: #fefefe;
+}
+:root {
+  --primaryFont: "";
+  --yellow: #CEC52C;
+  --green: #31873C;
+  --blue: #1B578C;
+  --red: #590E1C;
+  --white: #fefefe;
 }
 
 .hidden {
@@ -18,17 +22,6 @@ main {
   filter: grayscale(1);
 }
 
-
-/* #list tbody tr:nth-child(odd) td {
-  background-color: #e7d7a9;
-  border-right: #f7e9c2 1px dotted;
-}
-
-#list tbody tr:nth-child(even) td {
-  border-right: #e7d7a9 1px dotted;
-  background-color: lightblue;
-} */
-
 #sorting th,
 [data-field="last-name"],
 [data-field="name"],
@@ -36,11 +29,6 @@ main {
 [data-field="name"],
 [data-field="squad"] {
   cursor: pointer;
-}
-.header-logo{
-  height: 35vh;
-  margin: 2rem;
-  align-self: center;
 }
 
 
@@ -54,6 +42,24 @@ main {
   padding: 2rem;
 }
 #squad-popup {
+  background-color:#e7d7a9;
+  position: fixed;
+  box-shadow: 10px 10px 16px -1px rgba(62, 5, 0, 0.31);
+  border-radius: 20px;
+  top: 35%;
+  left: 62%;
+  padding: 2rem;
+}
+#pref-popup {
+  background-color:#e7d7a9;
+  position: fixed;
+  box-shadow: 10px 10px 16px -1px rgba(62, 5, 0, 0.31);
+  border-radius: 20px;
+  top: 15%;
+  left:40%;
+  padding: 2rem;
+}
+#pref-btn {
   background-color:#e7d7a9;
   position: fixed;
   box-shadow: 10px 10px 16px -1px rgba(62, 5, 0, 0.31);
@@ -79,7 +85,45 @@ main {
 .inqsquad::after{
   filter: grayscale(1);
 }
-
-
-
-
+/* nav styling*/
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hog-logo{
+align-items: center;
+margin: 1rem;
+}
+.header-logo{
+  height: 35vh;
+}
+button{
+  border-radius: 15px;
+  border: none;
+  height: 2rem;
+}
+#filter-btns button{
+background-color: var(--blue);
+color: var(--white);
+padding: 0.5rem;
+text-align: center;
+}
+#shdiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#align-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 1rem;
+}
+#search-btn{
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  background-color: var(--white);
+  height: 1.5rem;
+  width: 4rem;
+}

@@ -11,9 +11,10 @@
 
 <body>
     <header>
-        <img src="img/logo-hogwarts.png" alt="Hogwarts student list logo" class="header-logo">
-        <button id="hacking-btn">hack</button>
-    </header>
+        <div class="hog-logo"> 
+            <img src="img/logo-hogwarts.png" alt="Hogwarts student list logo" class="header-logo">
+        </div>
+    
     <nav>
         <div id="filter-btns">
             Filters:
@@ -27,12 +28,16 @@
             <button id="all" data-action="filter" data-filter="*">See All <span id="counter-all"></span></button>
 
         </div>
-        <div id="right-nav">
-            <div id="house-filter">
+        <div id="shdiv">
+            <div id="align-box"> 
                 <div id="search-box">
-                    <input id="sbar" type="search" placeholder="Search by name.." name="search" />
+                    <input id="sbar" type="search" placeholder="Search by name.."  name="search" />
                     <button id="search-btn">Search</button>
                 </div>
+                </div>
+                <div id="house-filter">
+                </div>
+                <button id="hacking-btn">hack</button>
                 <p>Filter by House</p>
                 <div id="houses">
                     <img id="grif-btn" data-action="filterH" data-filter="Gryffindor" src="img/gryffindor.png" alt="Griffindor house" height="120px">
@@ -40,9 +45,10 @@
                     <img id="huff-btn" data-action="filterH" data-filter="Hufflepuff" src="img/hufflepuff.png" alt ="hufflepuff house" height="120px">
                     <img id="rave-btn" data-action="filterH" data-filter="Ravenclaw" src="img/ravenclaw.png" alt="ravenclaw house" height="120px">
                 </div>
-            </div>
+            
         </div>
     </nav>
+</header>
     <main>
         <table id="list">
             <thead>
@@ -111,9 +117,10 @@
             <button id="pref-btn">OK</button>
         </div>
         <div id="squad-popup" class="hidden">
-            <p>Only Slytherin students can be part of the Inquisitorial Squad. </p>
+            <p>Only Slytherin students or Pure-bloods can be part of the Inquisitorial Squad. </p>
             <button id="squad-btn">OK</button>
         </div>
+        
     </main>
 </body>
 <script src="script.js"></script>
