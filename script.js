@@ -406,9 +406,9 @@ function displayStudent(student) {
 
   // adding event listeners to students for pop-up
   if (student.prefect) {
-    clone.querySelector(".smallicon").classList.remove("grey");
+    clone.querySelector("#smallicon").classList.remove("grey");
   } else {
-    clone.querySelector(".smallicon").classList.add("grey");
+    clone.querySelector("#smallicon").classList.add("grey");
   }
 
   if (student.squad) {
@@ -421,7 +421,7 @@ function displayStudent(student) {
     .addEventListener("click", openPU);
 
   clone.querySelector("[data-field='name'").addEventListener("click", openPU);
-  clone.querySelector(".smallicon").addEventListener("click", prefClicked);
+  clone.querySelector("#smallicon").addEventListener("click", prefClicked);
   clone.querySelector(".inqsquad").addEventListener("click", squadClicked);
 
   function prefClicked() {
@@ -543,7 +543,7 @@ function displayStudent(student) {
 
     // document.querySelector("#popup-house-logo").textContent =
     //   student.house.charAt(0);
-    
+
     if (student.lastname.includes("-")) {
       document.querySelector(
         "#student-pic"
