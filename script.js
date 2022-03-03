@@ -104,6 +104,7 @@ const Student = {
   squad: false,
   regStudent: true,
   cannotBeExpelled: false,
+  image: false,
 };
 const ailin = {
   firstname: "Ailin",
@@ -221,6 +222,9 @@ function prepareObject(jsonObject) {
   if (cleanMName.startsWith('"')) {
     student.middlename = "";
     student.alias = cleanMName;
+  }
+  if (student.lastname === "Leanne") {
+    student.image = false;
   }
 
   //   setting blood status
@@ -507,13 +511,13 @@ function displayStudent(student) {
       student.firstname + " " + student.middlename + " " + student.lastname;
     document.querySelector("#popup-house").textContent = student.house;
     document.querySelector("#popup-blood").textContent = student.blood;
-    document.querySelector("#popup-pref").textContent = student.prefect;
 
     if (student.regStudent) {
       document.querySelector("#popup-status").textContent = "Regular Student";
     } else {
       document.querySelector("#popup-status").textContent = "Expelled Student";
     }
+    
 
     if (student.prefect) {
       document.querySelector("#popup-pref").classList.remove("hidden");
@@ -522,14 +526,24 @@ function displayStudent(student) {
     }
     if (student.squad) {
       document.querySelector("#popup-sq").classList.remove("hidden");
+      document.querySelector("#popup-sq").textContent =
+
+        "Member of the Inquisitory Squad";
     } else {
       document.querySelector("#popup-sq").classList.add("hidden");
-    }
+      document.querySelector("#popup-sq").textContent =
 
+        "Not Member of the Inquisitory Squad";
+
+    }
+    if (student.image === false) {
+      console.log("show leanne pic");
+      //add image for Leanne
+    }
     //add image in the pop-up window
     document.querySelector("#h-logo").src = `/img/${student.house}.png`;
 
-    document.querySelector("#popup-status").textContent = student.status;
+    // document.querySelector("#popup-status").textContent = student.status;
     document.querySelector("#student-pic").src = `/students-pics/${
       student.lastname
     }_${student.firstname.charAt(0)}.png`;
@@ -551,24 +565,26 @@ function displayStudent(student) {
     document
       .querySelector("#popup-expell")
       .addEventListener("click", clickExpell);
+   
 
     function clickExpell() {
-      expelledStudents.push(student);
-      // const index = filterStudents.indexOf(student);
-      // regStudents = filterStudents.splice(index, 1);
-
-      student.regStudent = false;
-      document
-        .querySelector("#popup-expell")
-        .removeEventListener("click", clickExpell);
-      document.querySelector("#popup-status").textContent = "Expelled Student";
+      if (student.cannotBeExpelled === false) {
+        expelledStudents.push(student);
+        student.regStudent = false;
+        student.squad = false;
+        student.prefect = false;
+        document
+          .querySelector("#popup-expell")
+          .removeEventListener("click", clickExpell);
+        document.querySelector("#popup-status").textContent =
+          "Expelled Student";
+      } else {
+        console.log("you cannot expell me");
+      }
       buildList();
-      console.log(student.firstname + "is expelled");
     }
 
-    document
-      .querySelector("#popup-expell")
-      .addEventListener("click", squadClicked);
+    
   }
 
   document.querySelector("#list tbody").appendChild(clone);
