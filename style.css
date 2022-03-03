@@ -13,7 +13,10 @@ body {
   --red: #590E1C;
   --white: #fefefe;
 }
-
+main{
+  display: flex;
+  justify-content: center;
+}
 .hidden {
   display: none;
 }
@@ -79,7 +82,7 @@ body {
   /* padding: 1vh; */
 }
 .inqsquad{
-  height: 5vh;
+  height: 7vh;
   padding: 1vh;
 }
 .inqsquad::after{
@@ -102,6 +105,11 @@ button{
   border-radius: 15px;
   border: none;
   height: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+button:active {
+  transform: translateY(2px);
 }
 #filter-btns button{
 background-color: var(--blue);
@@ -126,4 +134,47 @@ text-align: center;
   background-color: var(--white);
   height: 1.5rem;
   width: 4rem;
+}
+input{
+  font-size: 15px;
+
+}
+input:active{
+  border: 0.2px solid var(--blue);
+}
+#hacking-btn{
+padding: 0.5rem;
+
+}
+.hack-yello{
+  background-color: var(--yellow);
+  color: var(--blue);
+}
+.hack-red{
+  background-color: var(--red);
+  color: var(--white);
+}
+#houses{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  margin: 1rem;
+}
+#slyt-btn, #huff-btn, #rave-btn{
+  height: 10rem;
+  margin-left: 3rem;
+}
+#grif-btn{
+  height: 10rem;
+}
+table{
+  border: 1px solid var(--green);
+  justify-items: center;
+}
+th{
+  border: 1px solid black;
+}
+td{
+  border: 1px solid black;
+  text-align: center;
 }

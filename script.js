@@ -580,6 +580,10 @@ function hackTheSystem() {
   document
     .querySelector("#hacking-btn")
     .removeEventListener("click", hackTheSystem);
+    document
+    .querySelector("#hacking-btn")
+    .classList.add("hack-red");
+  
   systemHacked = true;
   allStudents.push(marina);
   allStudents.push(ailin);
