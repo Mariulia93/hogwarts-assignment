@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Sans+Pro&display=swap');
+
 *{
   box-sizing: border-box;
 }
 
 body {
   background-color: #fefefe;
+  font-family:'Open Sans', sans-serif;;
 }
 :root {
   --primaryFont: "";
@@ -12,6 +15,8 @@ body {
   --blue: #1B578C;
   --red: #590E1C;
   --white: #fefefe;
+  --grey: #E6E6E6;
+  --light-grey: #F7F7F7;
 }
 main{
   display: flex;
@@ -78,11 +83,11 @@ main{
   filter: grayscale(100%);
 }
 #smallicon{
-  height: 5vh;
+  height: 8vh;
   /* padding: 1vh; */
 }
 .inqsquad{
-  height: 7vh;
+  height: 10vh;
   padding: 1vh;
 }
 .inqsquad::after{
@@ -102,11 +107,16 @@ margin: 1rem;
   height: 35vh;
 }
 button{
-  border-radius: 15px;
+  border-radius: 12px;
+  padding: 20px;
   border: none;
-  height: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   opacity: 1;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  display: inline-block;
+  
 }
 button:active {
   transform: translateY(2px);
@@ -132,8 +142,8 @@ text-align: center;
   border: 1px solid var(--blue);
   color: var(--blue);
   background-color: var(--white);
-  height: 1.5rem;
-  width: 4rem;
+  border-radius: 12px;
+  padding: 3px 8px 3px 8px;
 }
 input{
   font-size: 15px;
@@ -168,13 +178,22 @@ padding: 0.5rem;
   height: 10rem;
 }
 table{
-  border: 1px solid var(--green);
+ 
   justify-items: center;
+  margin-top: 1rem;
+  
 }
 th{
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  font-family:'Open Sans', sans-serif;
+  font-size: 18px;
+  padding: 1rem;
+  background-color: var(--grey);
+  color: var(--blue);
+
 }
 td{
-  border: 1px solid black;
   text-align: center;
+  padding: 1rem;
+  background-color: var(--light-grey);
 }

@@ -17,7 +17,6 @@
     
     <nav>
         <div id="filter-btns">
-            Filters:
             <button id="filter-pref" data-action="filtersp" data-filter="pref">See Prefects <span id="counter-pref"></span></button>
             <button id="filter-squad" data-action="filtersp" data-filter="squad">See Inquisitorial Squad <span id="counter-squad"></span></button>
             <button id="filter-reg" data-action="filterS" data-filter="regular">See Regular Students <span id="counter-regular"></span></button>
@@ -56,8 +55,8 @@
                     <th data-action="sort" data-sort-direction="asc" data-sort="pref">Prefect
                     </th>
                     <th data-action="sort" data-sort-direction="asc" data-sort="firstname">First Name</th>
-                    <th data-action="sort" data-sort-direction="asc" data-sort="lastname">Last Name</th>
                     <th data-action="sort" data-sort-direction="asc" data-sort="middlename">Middle Name</th>
+                    <th data-action="sort" data-sort-direction="asc" data-sort="lastname">Last Name</th>
 
 
 
@@ -76,9 +75,9 @@
         <template id="student">
             <tr>
                 <td data-field="pref"><img src="img/print.png" alt="Prefect badge" id="smallicon"></td>
-                <td data-field="last-name">Last Name</td>
                 <td data-field="name">First Name</td>
                 <td data-field="middle-name">Middle Name</td>
+                <td data-field="last-name">Last Name</td>
                 <td data-field="house">House</td>
                 <td data-field="blood-status">Blood Status</td>
                 <td data-field="status">Status</td>

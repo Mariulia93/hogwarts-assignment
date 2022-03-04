@@ -97,7 +97,7 @@ async function loadJSON() {
 function prepareObjects(jsonData) {
   allStudents = jsonData.map(prepareObject);
   filterStudents = allStudents;
-  displayList(filterStudents);
+  buildList(filterStudents);
   console.log("jsonData", jsonData);
   return filterStudents;
   //   prepareObject(allStudents);
@@ -304,7 +304,7 @@ function displayStudent(student) {
   const clone = document
     .querySelector("template#student")
     .content.cloneNode(true);
-
+  countStudent();
   // set clone data
   clone.querySelector("[data-field=name]").textContent = student.firstname;
   clone.querySelector("[data-field=middle-name]").textContent =
@@ -332,44 +332,6 @@ function displayStudent(student) {
   }
 
   //counters lists
-  document.querySelector(
-    "#counter-all"
-  ).textContent = `(${allStudents.length})`;
-  document.querySelector(
-    "#counter-pref"
-  ).textContent = `(${prefectsList.length})`;
-  document.querySelector(
-    "#counter-squad"
-  ).textContent = `(${squadList.length})`;
-
-  let countRegStudents = allStudents.filter(
-    (student) => student.regStudent === true
-  );
-  document.querySelector(
-    "#counter-regular"
-  ).textContent = `(${countRegStudents.length})`;
-  document.querySelector(
-    "#counter-expelled"
-  ).textContent = `(${expelledStudents.length})`;
-
-  let countPureBlood = allStudents.filter(
-    (student) => student.blood === "Pure Blood"
-  );
-  document.querySelector(
-    "#counter-pureblood"
-  ).textContent = `(${countPureBlood.length})`;
-
-  let countHalfBlood = allStudents.filter(
-    (student) => student.blood === "Half-Blood"
-  );
-  document.querySelector(
-    "#counter-halfblood"
-  ).textContent = `(${countHalfBlood.length})`;
-
-  let countMuggle = allStudents.filter((student) => student.blood === "Muggle");
-  document.querySelector(
-    "#counter-muggles"
-  ).textContent = `(${countMuggle.length})`;
 
   clone
     .querySelector("[data-field=last-name")
@@ -540,7 +502,6 @@ function displayStudent(student) {
       }_${student.firstname.charAt(0)}.png`;
     }
 
-
     if (student.lastname.includes("-")) {
       document.querySelector(
         "#student-pic"
@@ -576,14 +537,53 @@ function displayStudent(student) {
 
   document.querySelector("#list tbody").appendChild(clone);
 }
+function countStudent() {
+  document.querySelector(
+    "#counter-all"
+  ).textContent = `(${allStudents.length})`;
+  document.querySelector(
+    "#counter-pref"
+  ).textContent = `(${prefectsList.length})`;
+  document.querySelector(
+    "#counter-squad"
+  ).textContent = `(${squadList.length})`;
+
+  let countRegStudents = allStudents.filter(
+    (student) => student.regStudent === true
+  );
+  document.querySelector(
+    "#counter-regular"
+  ).textContent = `(${countRegStudents.length})`;
+  document.querySelector(
+    "#counter-expelled"
+  ).textContent = `(${expelledStudents.length})`;
+
+  let countPureBlood = allStudents.filter(
+    (student) => student.blood === "Pure Blood"
+  );
+  document.querySelector(
+    "#counter-pureblood"
+  ).textContent = `(${countPureBlood.length})`;
+
+  let countHalfBlood = allStudents.filter(
+    (student) => student.blood === "Half-Blood"
+  );
+  document.querySelector(
+    "#counter-halfblood"
+  ).textContent = `(${countHalfBlood.length})`;
+
+  let countMuggle = allStudents.filter((student) => student.blood === "Muggle");
+  document.querySelector(
+    "#counter-muggles"
+  ).textContent = `(${countMuggle.length})`;
+}
+
 function hackTheSystem() {
   document
     .querySelector("#hacking-btn")
     .removeEventListener("click", hackTheSystem);
-    document
-    .querySelector("#hacking-btn")
-    .classList.add("hack-red");
-  
+  document.querySelector("#hacking-btn").classList.add("hack-red");
+
   systemHacked = true;
   allStudents.push(marina);
   allStudents.push(ailin);
