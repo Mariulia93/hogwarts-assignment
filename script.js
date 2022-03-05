@@ -259,7 +259,7 @@ function filterSlist(filter) {
       (student) => student.regStudent === false
     );
   }
-  buildList(filterStudents);
+  displayList(filterStudents);
 }
 
 //prefects and squad lists
@@ -418,7 +418,7 @@ function displayStudent(student) {
       student.squad = true;
       setTimeout(squadHacked, 3000);
     } else {
-      document.querySelector("cant be squad");
+      console.log("cant be squad");
       document.querySelector("#squad-popup").classList.remove("hidden");
       document.querySelector("#squad-btn").addEventListener("click", closePU);
     }
@@ -474,13 +474,12 @@ function displayStudent(student) {
     //add image in the pop-up window
     document.querySelector("#h-logo").src = `/img/${student.house}.png`;
 
-    // document.querySelector("#popup-status").textContent = student.status;
+    
     document.querySelector("#student-pic").src = `/students-pics/${
       student.lastname
     }_${student.firstname.charAt(0)}.png`;
 
-    // document.querySelector("#popup-house-logo").textContent =
-    //   student.house.charAt(0);
+    
 
     //fixing patil issue
     if (student.lastname.includes("-")) {
@@ -502,15 +501,6 @@ function displayStudent(student) {
       }_${student.firstname.charAt(0)}.png`;
     }
 
-    if (student.lastname.includes("-")) {
-      document.querySelector(
-        "#student-pic"
-      ).src = `/students-pics/${student.lastname.indexOf(
-        "-",
-        student.lastname.substring(1)
-      )}_${student.firstname.charAt(0)}.png`;
-    }
-
     document.querySelector("#popup-close").addEventListener("click", closePU);
 
     document
@@ -528,10 +518,11 @@ function displayStudent(student) {
           .removeEventListener("click", clickExpell);
         document.querySelector("#popup-status").textContent =
           "Expelled Student";
+          buildList();
       } else {
         console.log("you cannot expell me");
-      }
-      buildList();
+    }
+      
     }
   }
 
@@ -582,7 +573,23 @@ function hackTheSystem() {
   document
     .querySelector("#hacking-btn")
     .removeEventListener("click", hackTheSystem);
+    document
+    .querySelector("#hacking-btn").textContent = "The System is Hacked";
   document.querySelector("#hacking-btn").classList.add("hack-red");
+  //wizzard animation on
+  document.querySelector("#wizzard1").classList.remove("hidden");
+  document.querySelector("#wizzard2").classList.remove("hidden");
+  document.querySelector("#wizzard3").classList.remove("hidden");
+  document.querySelector("#wizzard4").classList.remove("hidden");
+  document.querySelector("#wizzard5").classList.remove("hidden");
+  document.querySelector("#wizzard6").classList.remove("hidden");
+  //adding animation
+  document.querySelector("#wizzard1").classList.add("flying1");
+  document.querySelector("#wizzard2").classList.add("flying2");
+  document.querySelector("#wizzard3").classList.add("flying3");
+  document.querySelector("#wizzard4").classList.add("flying4");
+  document.querySelector("#wizzard5").classList.add("flying5");
+  document.querySelector("#wizzard6").classList.add("flying6");
 
   systemHacked = true;
   allStudents.push(marina);
