@@ -94,6 +94,9 @@ main{
 .access{
   height: 12vh;
 }
+.alert{
+  height: 12vh;
+}
 #squad-btn{
   background-color: var(--red);
   color: var(--white);
@@ -101,22 +104,21 @@ main{
   text-align: center;
 }
 #pref-popup {
-  background-color:#e7d7a9;
-  position: fixed;
-  box-shadow: 10px 10px 16px -1px rgba(62, 5, 0, 0.31);
-  border-radius: 20px;
-  top: 15%;
-  left:40%;
-  padding: 2rem;
-}
-#pref-btn {
-  background-color:#e7d7a9;
+  background-color: white;
+  border: 5px double var(--red);
   position: fixed;
   box-shadow: 10px 10px 16px -1px rgba(62, 5, 0, 0.31);
   border-radius: 20px;
   top: 35%;
-  left: 62%;
-  padding: 2rem;
+  left: 37%;
+  padding: 1rem;
+  text-align: center;
+}
+#pref-btn {
+  background-color: var(--red);
+  color: var(--white);
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  text-align: center;
 }
 #h-logo{
   height: 8vw;
