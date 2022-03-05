@@ -51,6 +51,21 @@ main{
   padding: 2rem;
   text-align: center;
 }
+#magic-text{
+  width: 36vh;
+  bottom: 21vh;
+  right: 4vh;
+  position: absolute;
+  animation: fadeIn 1.5s linear;
+  /* animation-iteration-count: 3; */
+  
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
 #popup-expell{
   background-color: var(--yellow);
   color: var(--blue);

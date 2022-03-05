@@ -520,7 +520,7 @@ function displayStudent(student) {
           "Expelled Student";
           buildList();
       } else {
-        console.log("you cannot expell me");
+        document.querySelector("#magic-text").classList.remove("hidden");
     }
       
     }
@@ -574,7 +574,7 @@ function hackTheSystem() {
     .querySelector("#hacking-btn")
     .removeEventListener("click", hackTheSystem);
     document
-    .querySelector("#hacking-btn").textContent = "The System is Hacked";
+    .querySelector("#hacking-btn").textContent = "System Hacked";
   document.querySelector("#hacking-btn").classList.add("hack-red");
   //wizzard animation on
   document.querySelector("#wizzard1").classList.remove("hidden");
