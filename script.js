@@ -474,13 +474,6 @@ function displayStudent(student) {
     //add image in the pop-up window
     document.querySelector("#h-logo").src = `/img/${student.house}.png`;
 
-    
-    document.querySelector("#student-pic").src = `/students-pics/${
-      student.lastname
-    }_${student.firstname.charAt(0)}.png`;
-
-    
-
     //fixing patil issue
     if (student.lastname.includes("-")) {
       let urlImage;
@@ -518,11 +511,10 @@ function displayStudent(student) {
           .removeEventListener("click", clickExpell);
         document.querySelector("#popup-status").textContent =
           "Expelled Student";
-          buildList();
+        buildList();
       } else {
         document.querySelector("#magic-text").classList.remove("hidden");
-    }
-      
+      }
     }
   }
 
@@ -573,8 +565,7 @@ function hackTheSystem() {
   document
     .querySelector("#hacking-btn")
     .removeEventListener("click", hackTheSystem);
-    document
-    .querySelector("#hacking-btn").textContent = "System Hacked";
+  document.querySelector("#hacking-btn").textContent = "System Hacked";
   document.querySelector("#hacking-btn").classList.add("hack-red");
   //wizzard animation on
   document.querySelector("#wizzard1").classList.remove("hidden");
