@@ -472,14 +472,11 @@ function displayStudent(student) {
       //TO ADD image for Leanne
     }
     //add image in the pop-up window
-    document.querySelector("#h-logo").src = `/img/${student.house}.png`;
+    document.getElementById("h-logo").src = `../img/${student.house}.png`;
 
-    
-    document.querySelector("#student-pic").src = `/students-pics/${
+    document.getElementById("student-pic").src = `../students-pics/${
       student.lastname
     }_${student.firstname.charAt(0)}.png`;
-
-    
 
     //fixing patil issue
     if (student.lastname.includes("-")) {
@@ -490,13 +487,15 @@ function displayStudent(student) {
       urlImage =
         imglastName + "_" + student.firstname.charAt(0).toLowerCase() + ".png";
       console.log(urlImage);
-      document.querySelector("#student-pic").src = `/students-pics/${urlImage}`;
+      document.getElementById(
+        "student-pic"
+      ).src = `../students-pics/${urlImage}`;
     } else if (student.lastname === "Patil") {
       document.querySelector(
         "#student-pic"
       ).src = `/students-pics/${student.lastname}_${student.firstname}.png`;
     } else {
-      document.querySelector("#student-pic").src = `/students-pics/${
+      document.getElementById("student-pic").src = `../students-pics/${
         student.lastname
       }_${student.firstname.charAt(0)}.png`;
     }
@@ -518,11 +517,10 @@ function displayStudent(student) {
           .removeEventListener("click", clickExpell);
         document.querySelector("#popup-status").textContent =
           "Expelled Student";
-          buildList();
+        buildList();
       } else {
         document.querySelector("#magic-text").classList.remove("hidden");
-    }
-      
+      }
     }
   }
 
@@ -573,8 +571,7 @@ function hackTheSystem() {
   document
     .querySelector("#hacking-btn")
     .removeEventListener("click", hackTheSystem);
-    document
-    .querySelector("#hacking-btn").textContent = "System Hacked";
+  document.querySelector("#hacking-btn").textContent = "System Hacked";
   document.querySelector("#hacking-btn").classList.add("hack-red");
   //wizzard animation on
   document.querySelector("#wizzard1").classList.remove("hidden");
